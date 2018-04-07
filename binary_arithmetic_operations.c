@@ -11,7 +11,19 @@
   #define D for (;0;)
 #endif
 
-
+/**
+ * Allocate operand_len consecutive bytes of memory in the heap
+ * and fill it with the character '0'. It is used to represent
+ * a binary number with operand_len.
+ * e.g., for operand_len = 4, we get the array:
+ *  '0', '0', '0', '0', '\0'
+ *
+ * INPUT
+ *  size_t operand_len : number of bits of a binary number
+ * RETURN
+ *  a null terminated string containing operand_len '0' 
+ *  characters
+ */  
 static char *initialize_with_zeros(const size_t operand_len)
 {
   char *buffer = (char *)malloc(operand_len+1);
