@@ -117,6 +117,7 @@ void test_conversions()
     binary_num = uint2binary(uint, OPERAND_LENGTH);
     D printf("\n%3d = %s\n", uint, binary_num);
     assert(binary2uint(binary_num, strlen(binary_num)) == uint);
+    free(binary_num);
   }
   printf("test_conversions: ALL TESTS PASSED\n");
 }
