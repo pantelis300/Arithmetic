@@ -7,11 +7,35 @@
 #ifndef __SERIAL_BINARY_MULTIPLICATION__
 #define __SERIAL_BINARY_MULTIPLICATION__
 
+#ifdef DEBUG
+  #define D
+#else
+  #define D for (;0;)
+#endif
+
 typedef struct
 {
   char sum;
   char carry_out;
 } full_adder_output_t;
+
+
+/**
+ * Function: initialize_with_zeros
+ * -------------------------------
+ * Allocate operand_len consecutive bytes of memory in the heap
+ * and fill it with the character '0'. It is used to represent
+ * a binary number with operand_len.
+ * e.g., for operand_len = 4, we get the array:
+ *  '0', '0', '0', '0', '\0'
+ *
+ * INPUT
+ *  size_t operand_len : number of bits of a binary number
+ * RETURN
+ *  a null terminated string containing operand_len '0' 
+ *  characters
+ */  
+char *initialize_with_zeros(const size_t operand_len);
 
 /**
  * Function: full_adder
